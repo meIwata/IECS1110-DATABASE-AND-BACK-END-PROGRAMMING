@@ -19,7 +19,7 @@ public class Main {
         // 注意：這裡的 studentId 是學生的唯一識別碼，要去資料庫看學生id
         // manager.deleteStudent(12);
 
-        // 查詢學生資料
+        // 查詢所有學生資料
         // manager.listStudents();
 
         // 查詢學生資料
@@ -31,7 +31,10 @@ public class Main {
         // manager.createCourse("計算機概論", "資訊工程基礎課程", 3);
 
         // 更新課程
-        manager.updateCourse(5, "計算機概論", "",4);
+        // manager.updateCourse(5, "計算機概論", "",4);
+
+        // 查詢所有課程
+        manager.listCourses();
 
     }
 }

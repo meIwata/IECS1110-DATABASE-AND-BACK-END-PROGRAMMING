@@ -138,4 +138,25 @@ public class StudentDatabaseManager {
             e.printStackTrace();
         }
     }
+
+    // 查詢所有課程
+    public void listCourses() {
+        String sql = "SELECT * FROM Course";
+        try (Connection conn = connect();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) { // 執行查詢並獲取結果集
+            while (rs.next()) { // 如果資料還有下一筆的話就是 true
+                int courseId = rs.getInt("course_id");
+                String courseName = rs.getString("course_name");
+                String description = rs.getString("course_description");
+                int credits = rs.getInt("credits");
+
+                // 輸出課程資料
+                System.out.printf("ID: %d, Name: %s, Description: %s, Credits: %d%n",
+                        courseId, courseName, description, credits);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
