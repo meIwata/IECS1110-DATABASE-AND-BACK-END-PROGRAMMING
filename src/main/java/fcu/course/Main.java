@@ -33,10 +33,15 @@ public class Main {
         // 更新課程
         // manager.updateCourse(5, "計算機概論", "",4);
 
+        // 刪除課程
+        // manager.deleteCourse(5);
+
         // 查詢所有課程
         // manager.listCourses();
 
         // 查詢課程
-        manager.getCourseById(5);
+        // manager.getCourseById(5);
+
+
     }
 }

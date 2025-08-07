@@ -139,6 +139,18 @@ public class StudentDatabaseManager {
         }
     }
 
+    // 刪除課程
+    public void deleteCourse(Integer courseId) {
+        String sql = "DELETE FROM Course WHERE course_id = ?";
+        try (Connection conn = connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, courseId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     // 查詢所有課程
     public void listCourses() {
         String sql = "SELECT * FROM Course";
@@ -161,7 +173,7 @@ public class StudentDatabaseManager {
     }
 
     // 透過courseId查詢課程
-    public void getCourseById(int courseId) {
+    public void getCourseById(Integer courseId) {
         String sql = "SELECT * FROM Course WHERE course_id = ?";
         try (Connection conn = connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -183,4 +195,6 @@ public class StudentDatabaseManager {
             e.printStackTrace();
         }
     }
+
+
 }
