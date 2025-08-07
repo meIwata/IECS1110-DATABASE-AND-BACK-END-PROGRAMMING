@@ -23,6 +23,11 @@ public class Main {
         // manager.listStudents();
 
         // 查詢學生資料
-        manager.getStudentById(100);
+        // manager.getStudentById(100);
+
+        //------------------------------
+
+        // 新增課程
+        manager.createCourse("計算機概論", "資訊工程基礎課程", 3);
     }
 }

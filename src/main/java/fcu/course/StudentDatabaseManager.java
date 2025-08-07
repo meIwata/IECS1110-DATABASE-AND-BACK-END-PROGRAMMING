@@ -33,7 +33,7 @@ public class StudentDatabaseManager {
 
     // 修改學生
     // 注意：這裡的 studentId 是學生的唯一識別碼
-    public void updateStudent(int studentId, String firstName, String lastName, String dateOfBirth, String email)  {
+    public void updateStudent(int studentId, String firstName, String lastName, String dateOfBirth, String email) {
         String sql = "UPDATE Student SET first_name = ?, last_name = ?, date_of_birth = ?, email = ? WHERE student_id = ?";
         try (Connection conn = connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -62,7 +62,7 @@ public class StudentDatabaseManager {
     }
 
     // 查詢所有學生
-    public void listStudents()  {
+    public void listStudents() {
         String sql = "SELECT * FROM Student";
         try (Connection conn = connect();
              PreparedStatement stmt = conn.prepareStatement(sql);
@@ -78,7 +78,7 @@ public class StudentDatabaseManager {
                 System.out.printf("ID: %d, Name: %s %s, Date of Birth: %s, Email: %s%n",
                         studentId, firstName, lastName, dateOfBirth, email);
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -108,5 +108,19 @@ public class StudentDatabaseManager {
 //        catch (SQLException e) {
 //            e.printStackTrace();
 //        }
+    }
+
+    // 新增課程
+    public void createCourse(String courseName, String Description, Integer credit) {
+        String sql = "INSERT INTO Course (course_name, course_description, credits) VALUES (?, ?, ?)";
+        try (Connection conn = connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, courseName);
+            pstmt.setString(2, Description);
+            pstmt.setInt(3, credit);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
