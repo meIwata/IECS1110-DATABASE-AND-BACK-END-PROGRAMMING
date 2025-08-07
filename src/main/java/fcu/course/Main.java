@@ -34,7 +34,9 @@ public class Main {
         // manager.updateCourse(5, "計算機概論", "",4);
 
         // 查詢所有課程
-        manager.listCourses();
+        // manager.listCourses();
 
+        // 查詢課程
+        manager.getCourseById(5);
     }
 }
