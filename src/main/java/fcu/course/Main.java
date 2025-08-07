@@ -28,6 +28,10 @@ public class Main {
         //------------------------------
 
         // 新增課程
-        manager.createCourse("計算機概論", "資訊工程基礎課程", 3);
+        // manager.createCourse("計算機概論", "資訊工程基礎課程", 3);
+
+        // 更新課程
+        manager.updateCourse(5, "計算機概論", "",4);
+
     }
 }

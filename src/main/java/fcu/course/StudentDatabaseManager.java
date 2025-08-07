@@ -111,13 +111,28 @@ public class StudentDatabaseManager {
     }
 
     // 新增課程
-    public void createCourse(String courseName, String Description, Integer credit) {
+    public void createCourse(String courseName, String description, Integer credit) {
         String sql = "INSERT INTO Course (course_name, course_description, credits) VALUES (?, ?, ?)";
         try (Connection conn = connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, courseName);
-            pstmt.setString(2, Description);
+            pstmt.setString(2, description);
             pstmt.setInt(3, credit);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 更新課程
+    public void updateCourse(Integer courseId, String courseName, String description, Integer credit) {
+        String sql = "UPDATE Course SET course_name = ?, course_description = ? ,credits = ? WHERE course_id = ?";
+        try (Connection conn = connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, courseName);
+            pstmt.setString(2, description);
+            pstmt.setInt(3, credit);
+            pstmt.setInt(4, courseId);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
