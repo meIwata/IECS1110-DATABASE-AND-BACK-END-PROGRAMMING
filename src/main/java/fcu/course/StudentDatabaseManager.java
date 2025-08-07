@@ -3,6 +3,11 @@ package fcu.course;
 import java.sql.*;
 
 public class StudentDatabaseManager {
+    /**
+     老師資料庫操作說明:
+     https://fluffy-jujube-1b8.notion.site/Java-b875bdb773d641b4b8715ce5391b9226
+     */
+
     // 資料庫連線資訊
     private static final String URL = "jdbc:mariadb://140.134.24.157:23306/D1397221_0724";
     private static final String USER = "root";
@@ -195,6 +200,4 @@ public class StudentDatabaseManager {
             e.printStackTrace();
         }
     }
-
-
 }
